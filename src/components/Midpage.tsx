@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function Midpage() {
+export const Midpage: React.FC = () => {
   return (
     <LampContainer>
       <motion.div
@@ -24,18 +24,23 @@ export function Midpage() {
 
 function SimplifiedGridDemo() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {cards.map((card) => (
         <div key={card.id} className={`relative overflow-hidden rounded-lg ${card.className}`}>
-          <video 
-            src={card.thumbnail} 
-            autoPlay
-            loop
-            muted
-            className="w-full h-[60vh] object-cover" // Ajuste a altura do vídeo aqui
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
-            {card.content}
+          <div className="relative w-full h-96">
+            <video 
+              src={card.thumbnail} 
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover" // Ajuste o tamanho do vídeo aqui
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+              {card.content}
+              <a href="/price" className="absolute bottom-4 right-4 bg-gray-800  text-white px-4 py-2 rounded">
+                Ver Preços
+              </a>
+            </div>
           </div>
         </div>
       ))}
@@ -45,8 +50,8 @@ function SimplifiedGridDemo() {
 
 const SkeletonOne = () => (
   <div className="text-white">
-    <p className="font-bold md:text-2xl text-xl">House in the woods</p>
-    <p className="font-normal text-sm mt-2">A serene and tranquil retreat</p>
+    <p className="font-bold md:text-2xl text-xl">BARBERMG</p>
+    <p className="font-normal text-sm mt-2">TESTE 1 MES GRATIS </p>
   </div>
 );
 
@@ -55,7 +60,7 @@ const cards = [
     id: 1,
     content: <SkeletonOne />,
     className: "md:col-span-2",
-    thumbnail: "https://media.giphy.com/media/3o6Zt1J3s0pRi5tbtu/giphy.mp4", // Substitua pelo link do seu vídeo
+    thumbnail: "https://www.example.com/video.mp4", // Substitua pelo link do seu vídeo
   },
 ];
 
@@ -73,7 +78,7 @@ export const LampContainer = ({
         className
       )}
     >
-      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
+      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
         <motion.div
           initial={{ opacity: 0.5, width: "15rem" }}
           whileInView={{ opacity: 1, width: "30rem" }}
@@ -85,7 +90,7 @@ export const LampContainer = ({
           style={{
             backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
           }}
-          className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-white via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+          className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] mt- bg-gradient-conic from-white via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
         >
           <div className="absolute w-[100%] left-0 bg-slate-950 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
           <div className="absolute w-40 h-[100%] left-0 bg-slate-950 bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
