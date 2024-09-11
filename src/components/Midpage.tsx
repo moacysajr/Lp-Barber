@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -15,13 +14,50 @@ export function Midpage() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8"
+        className="w-full max-w-7xl mx-auto px-4"
       >
-    
+        <SimplifiedGridDemo />
       </motion.div>
     </LampContainer>
   );
 }
+
+function SimplifiedGridDemo() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-20">
+      {cards.map((card) => (
+        <div key={card.id} className={`relative overflow-hidden rounded-lg ${card.className}`}>
+          <video 
+            src={card.thumbnail} 
+            autoPlay
+            loop
+            muted
+            className="w-full h-[60vh] object-cover" // Ajuste a altura do vídeo aqui
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+            {card.content}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const SkeletonOne = () => (
+  <div className="text-white">
+    <p className="font-bold md:text-2xl text-xl">House in the woods</p>
+    <p className="font-normal text-sm mt-2">A serene and tranquil retreat</p>
+  </div>
+);
+
+const cards = [
+  {
+    id: 1,
+    content: <SkeletonOne />,
+    className: "md:col-span-2",
+    thumbnail: "https://media.giphy.com/media/3o6Zt1J3s0pRi5tbtu/giphy.mp4", // Substitua pelo link do seu vídeo
+  },
+];
 
 export const LampContainer = ({
   children,
@@ -103,5 +139,3 @@ export const LampContainer = ({
     </div>
   );
 };
-
-
