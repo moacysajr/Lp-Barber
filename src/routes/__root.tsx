@@ -6,7 +6,7 @@ export const Route = createRootRoute({
 	component: () => (
 		<React.Fragment>
 		
-			<main className='min-h-screen font-sans antialiased pt-10 px-3'>
+			<main className='min-h-screen font-sans antialiased '>
 				<Outlet />
 			</main>
 			{/* Devtools do Router: */}
