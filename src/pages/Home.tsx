@@ -1,14 +1,16 @@
 // src/pages/Home.tsx
 import { FC } from "react";
-import { Midpage } from "@/components/Midpage";
+
 import Price from "@/components/Price";
 import { Initial } from "@/components/Initial";
 import Test from "@/components/Test";
+import { Newmd } from "@/components/Newmd";
 
 const Home: FC = () => {
   return (
     <section>
-       <Midpage />
+      <Newmd></Newmd>
+      
 	  <Initial />
      <Test></Test>
       <Price />

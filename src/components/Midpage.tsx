@@ -1,12 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
+import { BackgroundLines } from "@/components/ui/background-lines"; // Importe o BackgroundLines
 
 export const Midpage: React.FC = () => {
   return (
     <div className="relative">
-   
+      {/* Adicione o BackgroundLines para envolver a seção */}
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+        <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+          Sanjana Airlines, <br /> Sajana Textiles.
+        </h2>
+        <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+          Get the best advices from our experts, including expert artists,
+          painters, marathon enthusiasts and RDX, totally free.
+        </p>
+      </BackgroundLines>
+
       <LampContainer>
         <div className="absolute top-0 left-0 right-0 z-20 flex justify-center">
           <div className="w-16 h-16 mt-[-16rem]"> {/* Ajuste a posição da logo */}
@@ -61,11 +71,11 @@ function SimplifiedGridDemo() {
                 muted
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+              <div className="absolute inset-0  bg-black bg-opacity-50 flex items-end p-4">
                 {card.content}
                 <button
                   onClick={handleScrollToPrices}
-                  className="absolute bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded"
+                  className="absolute bottom-4 right-4  bg-gray-800 text-white px-4 py-2 rounded"
                 >
                   TESTE GRÁTIS
                 </button>

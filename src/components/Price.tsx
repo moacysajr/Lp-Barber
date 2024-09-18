@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+
 
 const Price: React.FC = () => {
   return (
@@ -20,33 +20,37 @@ const Price: React.FC = () => {
           {/* Card */}
           <Card className="border-primary max-w-xs mx-auto flex flex-col h-full">
             <CardHeader className="text-center pb-2 flex-grow">
-              <Badge className="uppercase w-max self-center mb-3">
-                Mais Popular
-              </Badge>
-              <CardTitle className="!mb-7">Iniciante</CardTitle>
-              <span className="font-bold text-4xl">R$39</span>
+              
+              <CardTitle className="!mb-7">Pro</CardTitle>
+              <span className="font-bold text-4xl">R$59,99</span>
             </CardHeader>
             <CardDescription className="text-center w-11/12 mx-auto">
-              Todos os recursos básicos para começar um novo negócio
+              Todos os recursos ilimitados e mais 
             </CardDescription>
             <CardContent className="flex-grow">
               <ul className="mt-7 space-y-2.5 text-sm">
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">2 usuários</span>
+                  <span className="text-muted-foreground">Suporte 24 horas</span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">Recursos do plano</span>
+                  <span className="text-muted-foreground">Recursos ilimitados</span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
                   <span className="text-muted-foreground">Suporte ao produto</span>
                 </li>
+                <li className="flex space-x-2">
+                  <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
+                  <span className="text-muted-foreground">Whatsapp integrado</span>
+                </li>
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Inscreva-se</Button>
+            <Button className="w-full" variant={"outline"}>
+                Assine agora
+              </Button>
             </CardFooter>
           </Card>
           {/* End Card */}
@@ -54,11 +58,11 @@ const Price: React.FC = () => {
           {/* Card */}
           <Card className="max-w-xs mx-auto flex flex-col h-full">
             <CardHeader className="text-center pb-2 flex-grow">
-              <CardTitle className="mb-7">Gratuito</CardTitle>
-              <span className="font-bold text-4xl">Gratuito</span>
+              <CardTitle className="mb-7">Basico</CardTitle>
+              <span className="font-bold text-4xl">R$49,99</span>
             </CardHeader>
             <CardDescription className="text-center">
-            Todos os recursos básicos para começar um novo negócio
+            Todos os <br />recursos básicos 
             </CardDescription>
             <CardContent className="flex-grow">
               <ul className="mt-7 space-y-2.5 text-sm">
@@ -68,7 +72,7 @@ const Price: React.FC = () => {
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">Recursos do plano</span>
+                  <span className="text-muted-foreground">Recursos essensiais</span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
@@ -78,7 +82,7 @@ const Price: React.FC = () => {
             </CardContent>
             <CardFooter>
               <Button className="w-full" variant={"outline"}>
-                Inscreva-se
+                Assine agora
               </Button>
             </CardFooter>
           </Card>

@@ -1,4 +1,3 @@
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,10 +11,15 @@ export default function Test() {
     slidesToScroll: 1,
   };
 
+  const handleTestClick = () => {
+    // Adicione aqui a lógica para quando o botão for clicado, como redirecionar ou abrir uma modal
+    alert("Teste 1 mês grátis!");
+  };
+
   return (
     <>
       {/* Hero */}
-      <div className="relative overflow-hidden py-24 lg:py-32">
+      <div className="relative bg-zinc-900 overflow-hidden py-24 lg:py-32">
         <div className="container">
           <div className="max-w-2xl text-center mx-auto">
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
@@ -49,29 +53,28 @@ export default function Test() {
                 />
               </div>
             </Slider>
-            <div className="absolute bottom-12 -start-20 -z-[1] w-48 h-48 bg-gradient-to-b from-primary-foreground via-primary-foreground to-background p-px rounded-lg">
-              <div className="w-48 h-48 rounded-lg bg-background/10" />
-            </div>
-            <div className="absolute -top-12 -end-20 -z-[1] w-48 h-48 bg-gradient-to-t from-primary-foreground via-primary-foreground to-background p-px rounded-full">
-              <div className="w-48 h-48 rounded-full bg-background/10" />
-            </div>
+            
+            
           </div>
         </div>
       </div>
       {/* End Hero */}
 
-      {/* Test Card */}
-      <div className="py-12 bg-gray-800">
+      {/* Test Button */}
+      <div className="py-12 bg-zinc-900">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-yellow-400 p-8 rounded-lg shadow-lg">
+          <button
+            onClick={handleTestClick}
+            className="bg-yellow-400 p-8 rounded-lg shadow-lg hover:bg-yellow-500 transition-colors"
+          >
             <h2 className="text-3xl font-bold mb-4">Teste 1 Mês Grátis</h2>
             <p className="text-lg text-gray-600">
               Aproveite esta oferta para experimentar nosso serviço sem compromisso!
             </p>
-          </div>
+          </button>
         </div>
       </div>
-      {/* End Test Card */}
+      {/* End Test Button */}
     </>
   );
 }

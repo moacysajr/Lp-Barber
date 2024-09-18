@@ -37,7 +37,7 @@ export function Initial() {
   return (
    
    
-   <div className="py-8 px-4 md:px-8 bg-gray-950 min-h-screen flex flex-col items-center justify-center">
+   <div className="py-8 px-4 md:px-8 bg-zinc-900 min-h-screen flex flex-col items-center justify-center">
       {/* Texto adicionado acima dos cards */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-white">
