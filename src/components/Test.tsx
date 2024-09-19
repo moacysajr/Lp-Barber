@@ -62,13 +62,13 @@ export default function Test() {
 
       {/* Test Button */}
       <div className="py-12 bg-zinc-900">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto  text-center">
           <button
             onClick={handleTestClick}
-            className="bg-yellow-400 p-8 rounded-lg shadow-lg hover:bg-yellow-500 transition-colors"
+            className="bg-yellow-600 p-8 rounded-lg shadow-lg hover:bg-yellow-500 transition-colors"
           >
             <h2 className="text-3xl font-bold mb-4">Teste 1 Mês Grátis</h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg font-bold text-black">
               Aproveite esta oferta para experimentar nosso serviço sem compromisso!
             </p>
           </button>

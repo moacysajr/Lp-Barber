@@ -22,8 +22,12 @@ export const Card = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
-        hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
+        // Classe base para o card
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden transition-all duration-300 ease-out",
+        // Classe condicional que aplica desfoque e escala quando o card não está com hover
+        hovered !== null && hovered !== index && "blur-sm scale-[0.98]",
+        // Altura do card (pode ajustar h-60 e md:h-96 para controlar o tamanho)
+        "h-40 md:h-64 w-full" 
       )}
     >
       <img

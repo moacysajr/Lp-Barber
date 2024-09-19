@@ -1,52 +1,62 @@
 "use client";
 
-
 import { Link } from "@tanstack/react-router";
 import { Box } from "lucide-react";
-import { ModeToggle } from "./ModeToggle";
+
 import { Button } from "./ui/button";
 
 export function Newmd() {
+  // Função para rolar para o topo da página
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Faz a rolagem suave
+    });
+  };
+
   return (
     <>
       {/* Barra de Navegação */}
       <div className='py-3 px-3 sm:px-7 fixed top-0 left-0 w-full flex items-center justify-between z-50 bg-transparent'>
         <div className='inline-flex flex-shrink-0 items-center'>
           <Box className='size-7 mr-1' />
-          <span className='font-bold'>Boilerplate</span>
+          <span className='font-bold'>LOGO</span>
         </div>
         <div className='inline-flex gap-1 sm:gap-3 text-sm sm:text-base'>
-          <Button asChild variant={"ghost"} className='[&.active]:bg-secondary'>
-            <Link to='/'>Home</Link>
+          {/* Botão Home que rola para o topo */}
+          <Button variant={"ghost"} className='[&.active]:bg-secondary' onClick={scrollToTop}>
+            Home
           </Button>
           <Button asChild variant={"ghost"} className='[&.active]:bg-secondary'>
             <Link to='/about'>Sobre</Link>
           </Button>
-          <ModeToggle />
+         
         </div>
       </div>
+  
+  
 
       <main>
         {/* Seção com Imagem de Fundo */}
-        <section className="relative h-96">
-          {/* Imagem de fundo */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url("https://via.placeholder.com/1200x800")' }} // Substitua com a URL da sua imagem
-          ></div>
-          {/* Sobreposição escura para melhorar a legibilidade do texto */}
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          {/* Conteúdo da seção */}
-          <div className="absolute inset-0 flex items-center justify-start px-10">
-            <div className="text-white">
-              <h2 className="text-4xl font-bold mb-4">Experience the traditional barbershop feel</h2>
-              <p className="mb-4">Professional care to maintain your perfect look</p>
-              <div className="space-x-4">
-                <button className="bg-yellow-600 text-white px-4 py-2 rounded">READ MORE</button>
-                <button className="border border-white text-white px-4 py-2 rounded">NEW ETALON</button>
-              </div>
-            </div>
-          </div>
+  <section className="relative h-[30rem]"> {/* Aumentei a altura para 40rem (640px) */}
+    {/* Imagem de fundo */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{ backgroundImage: 'url("https://via.placeholder.com/1200x800")' }} // Substitua com a URL da sua imagem
+    ></div>
+    {/* Sobreposição escura para melhorar a legibilidade do texto */}
+    <div className="absolute inset-0 bg-black opacity-50"></div>
+    {/* Conteúdo da seção */}
+    <div className="absolute inset-0 flex items-center justify-start px-48">
+      <div className="text-white">
+        <h2 className="text-4xl font-bold mb-4">Tenha a melhor experiência com agendamento</h2>
+        <p className="mb-4">FAÇA UM TESTE DE 1 MES GRATIS</p>
+        <div className="space-x-4">
+          <button className="bg-yellow-600 text-white px-4 py-2 rounded">TESTE GRATIS</button>
+          <button className="border border-white text-white px-4 py-2 rounded">VER PLANOS</button>
+        </div>
+      </div>
+    </div>
         </section>
 
         {/* Seção de Cards com Imagens */}
