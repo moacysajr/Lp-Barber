@@ -12,7 +12,13 @@ import { CheckIcon } from "lucide-react";
 
 
 const Price: React.FC = () => {
+  
+  const handleTestClick = () => {
+    window.location.href = "https://wa.me/5598991892107?text=Olá,%20eu%20quero%20testar%20o%20serviço%20de%20um%20mês%20grátis!";
+  };
+
   return (
+    
     <>
       {/* Grid */}
       <div id="prices" className="mt-12 flex justify-center">
@@ -48,7 +54,7 @@ const Price: React.FC = () => {
               </ul>
             </CardContent>
             <CardFooter>
-            <Button className="w-full" variant={"outline"}>
+            <Button   onClick={handleTestClick} className="w-full" variant={"outline"}>
                 Assine agora
               </Button>
             </CardFooter>
@@ -81,7 +87,7 @@ const Price: React.FC = () => {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" variant={"outline"}>
+              <Button   onClick={handleTestClick}  className="w-full" variant={"outline"}>
                 Assine agora
               </Button>
             </CardFooter>

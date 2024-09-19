@@ -1,18 +1,38 @@
-"use client";
-
+import  { useState } from 'react';
 import { Link } from "@tanstack/react-router";
-import { Box } from "lucide-react";
-
+import { Box, X } from "lucide-react";
 import { Button } from "./ui/button";
 
-export function Newmd() {
-  // Função para rolar para o topo da página
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Faz a rolagem suave
-    });
+interface CardData {
+  title: string;
+  description: string;
+  buttonColor: string;
+}
+
+export function Newmd(): JSX.Element {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const scrollToTop = (): void => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const scrollTofinal = (): void => {
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+  };
+
+  const openImage = (imageSrc: string): void => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeImage = (): void => {
+    setSelectedImage(null);
+  };
+
+  const cardData: CardData[] = [
+    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600" },
+    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600" },
+    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900" }
+  ];
 
   return (
     <>
@@ -23,89 +43,76 @@ export function Newmd() {
           <span className='font-bold'>LOGO</span>
         </div>
         <div className='inline-flex gap-1 sm:gap-3 text-sm sm:text-base'>
-          {/* Botão Home que rola para o topo */}
-          <Button variant={"ghost"} className='[&.active]:bg-secondary' onClick={scrollToTop}>
+          <Button variant="ghost" className='[&.active]:bg-secondary' onClick={scrollToTop}>
             Home
           </Button>
-          <Button asChild variant={"ghost"} className='[&.active]:bg-secondary'>
+          <Button asChild variant="ghost" className='[&.active]:bg-secondary'>
             <Link to='/about'>Sobre</Link>
           </Button>
-         
         </div>
       </div>
-  
-  
 
       <main>
         {/* Seção com Imagem de Fundo */}
-  <section className="relative h-[30rem]"> {/* Aumentei a altura para 40rem (640px) */}
-    {/* Imagem de fundo */}
-    <div
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: 'url("https://via.placeholder.com/1200x800")' }} // Substitua com a URL da sua imagem
-    ></div>
-    {/* Sobreposição escura para melhorar a legibilidade do texto */}
-    <div className="absolute inset-0 bg-black opacity-50"></div>
-    {/* Conteúdo da seção */}
-    <div className="absolute inset-0 flex items-center justify-start px-48">
-      <div className="text-white">
-        <h2 className="text-4xl font-bold mb-4">Tenha a melhor experiência com agendamento</h2>
-        <p className="mb-4">FAÇA UM TESTE DE 1 MES GRATIS</p>
-        <div className="space-x-4">
-          <button className="bg-yellow-600 text-white px-4 py-2 rounded">TESTE GRATIS</button>
-          <button className="border border-white text-white px-4 py-2 rounded">VER PLANOS</button>
-        </div>
-      </div>
-    </div>
-        </section>
-
-        {/* Seção de Cards com Imagens */}
-        <section className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="relative overflow-hidden rounded-lg">
-              <img
-                src="https://via.placeholder.com/300x200" // Substitua com a URL da sua imagem
-                alt="Haircut & Shampoo"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <div className="text-white text-center p-4">
-                  <h3 className="font-bold mb-2">Haircut & Shampoo</h3>
-                  <p className="text-sm mb-4">Professional care for your hair style and health</p>
-                  <button className="text-yellow-600 bg-white py-2 px-4 rounded-md">READ MORE</button>
-                </div>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg">
-              <img
-                src="https://via.placeholder.com/300x200" // Substitua com a URL da sua imagem
-                alt="Beard & Mustache"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <div className="text-white text-center p-4">
-                  <h3 className="font-bold mb-2">Beard & Mustache</h3>
-                  <p className="text-sm mb-4">Expert grooming for your facial hair</p>
-                  <button className="text-white bg-yellow-600 py-2 px-4 rounded-md">READ MORE</button>
-                </div>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg">
-              <img
-                src="https://via.placeholder.com/300x200" // Substitua com a URL da sua imagem
-                alt="Specials"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <div className="text-white text-center p-4">
-                  <h3 className="font-bold mb-2">Specials</h3>
-                  <p className="text-sm mb-4">Check out our special offers and packages</p>
-                  <button className="text-white bg-zinc-900 py-2 px-4 rounded-md">READ MORE</button>
-                </div>
+        <section className="relative  h-[35rem]">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url("https://via.placeholder.com/1200x800")' }}
+          ></div>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-8 md:px-16 lg:px-24">
+            <div className="text-white max-w-lg">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Tenha a melhor experiência com agendamento</h2>
+              <p className="mb-4 text-lg sm:text-xl">AUMENTE SEU DESEMPENHO EM 100%</p>
+              <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
+                <button onClick={scrollTofinal} className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition duration-300">TESTE GRÁTIS</button>
+                <button onClick={scrollTofinal} className="border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition duration-300">VER PLANOS</button>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Seção de Cards com Imagens */}
+        <section className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cardData.map((card, index) => (
+              <div key={index} className="relative overflow-hidden rounded-lg">
+                <img
+                  src={`https://via.placeholder.com/300x200`}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-white text-center p-4">
+                    <h3 className="font-bold mb-2">{card.title}</h3>
+                    <p className="text-sm mb-4">{card.description}</p>
+                    <button 
+                      className={`text-white bg-${card.buttonColor} py-2 px-4 rounded-md`}
+                      onClick={() => openImage(`https://via.placeholder.com/600x400`)}
+                    >
+                      Veja Melhor
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Modal para imagem ampliada */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+            <div className="relative max-w-3xl w-full">
+              <img src={selectedImage} alt="Imagem ampliada" className="w-full h-auto" />
+              <button 
+                onClick={closeImage}
+                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors duration-200"
+              >
+                <X size={24} />
+              </button>
+            </div>
+          </div>
+        )}
       </main>
     </>
   );
