@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Link } from "@tanstack/react-router";
 import { Box, X } from "lucide-react";
 import { Button } from "./ui/button";
@@ -7,6 +7,7 @@ interface CardData {
   title: string;
   description: string;
   buttonColor: string;
+  imageUrl: string; // Adicionei imageUrl para cada card ter uma imagem específica
 }
 
 export function Newmd(): JSX.Element {
@@ -28,10 +29,11 @@ export function Newmd(): JSX.Element {
     setSelectedImage(null);
   };
 
+  // Adicionei URLs específicas para cada imagem
   const cardData: CardData[] = [
-    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600" },
-    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600" },
-    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900" }
+    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "https://utfs.io/f/OlDhih1IvUhDgkzEC5TOwhQ1VuE4of6LiNAFWtYDPkI80bHl" },
+    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "https://utfs.io/f/OlDhih1IvUhDjH9TbNlB7wIhgVP1OXifkNq8LncaJdCse403" },
+    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900", imageUrl: "https://utfs.io/f/OlDhih1IvUhDqRXArZgsU3rklqmaPQTG5CZWNdRhxp1vH7iK" }
   ];
 
   return (
@@ -54,10 +56,10 @@ export function Newmd(): JSX.Element {
 
       <main>
         {/* Seção com Imagem de Fundo */}
-        <section className="relative  h-[35rem]">
+        <section className="relative h-[35rem]">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url("https://via.placeholder.com/1200x800")' }}
+            style={{ backgroundImage: 'url("https://utfs.io/f/OlDhih1IvUhDwfYF3IkzYuTKRFmxLQPoGh8tCvyHp9c6jgeO")' }}
           ></div>
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-8 md:px-16 lg:px-24">
@@ -78,7 +80,7 @@ export function Newmd(): JSX.Element {
             {cardData.map((card, index) => (
               <div key={index} className="relative overflow-hidden rounded-lg">
                 <img
-                  src={`https://via.placeholder.com/300x200`}
+                  src={card.imageUrl} // Cada card agora tem uma imagem única
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
@@ -88,7 +90,7 @@ export function Newmd(): JSX.Element {
                     <p className="text-sm mb-4">{card.description}</p>
                     <button 
                       className={`text-white bg-${card.buttonColor} py-2 px-4 rounded-md`}
-                      onClick={() => openImage(`https://via.placeholder.com/600x400`)}
+                      onClick={() => openImage(card.imageUrl)}
                     >
                       Veja Melhor
                     </button>
