@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Box, X } from "lucide-react";
 import { Button } from "./ui/button";
 
+
 interface CardData {
   title: string;
   description: string;
@@ -31,9 +32,9 @@ export function Newmd(): JSX.Element {
 
   // Adicionei URLs específicas para cada imagem
   const cardData: CardData[] = [
-    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "https://utfs.io/f/OlDhih1IvUhDgkzEC5TOwhQ1VuE4of6LiNAFWtYDPkI80bHl" },
-    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "https://utfs.io/f/OlDhih1IvUhDjH9TbNlB7wIhgVP1OXifkNq8LncaJdCse403" },
-    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900", imageUrl: "https://utfs.io/f/OlDhih1IvUhDqRXArZgsU3rklqmaPQTG5CZWNdRhxp1vH7iK" }
+    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "/barbeiro.jpg" },
+    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "/salão.jpg" },
+    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900", imageUrl: "/manicure.jpg" }
   ];
 
   return (
@@ -59,7 +60,7 @@ export function Newmd(): JSX.Element {
         <section className="relative h-[35rem]">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url("https://utfs.io/f/OlDhih1IvUhDwfYF3IkzYuTKRFmxLQPoGh8tCvyHp9c6jgeO")' }}
+            style={{ backgroundImage: 'url("/fundo.jpg")' }}
           ></div>
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-8 md:px-16 lg:px-24">
