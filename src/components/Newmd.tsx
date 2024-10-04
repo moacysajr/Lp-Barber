@@ -3,12 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { Box, X } from "lucide-react";
 import { Button } from "./ui/button";
 
-
 interface CardData {
   title: string;
   description: string;
   buttonColor: string;
-  imageUrl: string; // Adicionei imageUrl para cada card ter uma imagem específica
+  imageUrl: string;
 }
 
 export function Newmd(): JSX.Element {
@@ -18,8 +17,12 @@ export function Newmd(): JSX.Element {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const scrollTofinal = (): void => {
-    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+  const scrollToTest = (): void => {
+    // Aqui, vamos usar um ID para rolar até o componente Test
+    const testElement = document.getElementById('test-section');
+    if (testElement) {
+      testElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const openImage = (imageSrc: string): void => {
@@ -30,7 +33,6 @@ export function Newmd(): JSX.Element {
     setSelectedImage(null);
   };
 
-  // Adicionei URLs específicas para cada imagem
   const cardData: CardData[] = [
     { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "/barbeiro.jpg" },
     { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "/salão.jpg" },
@@ -68,8 +70,8 @@ export function Newmd(): JSX.Element {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Tenha a melhor experiência com agendamento</h2>
               <p className="mb-4 text-lg sm:text-xl">AUMENTE SEU DESEMPENHO EM 100%</p>
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
-                <button onClick={scrollTofinal} className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition duration-300">TESTE GRÁTIS</button>
-                <button onClick={scrollTofinal} className="border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition duration-300">VER PLANOS</button>
+                <button onClick={scrollToTest} className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition duration-300">TESTE GRÁTIS</button>
+                <button onClick={scrollToTest} className="border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition duration-300">VER PLANOS</button>
               </div>
             </div>
           </div>
@@ -81,7 +83,7 @@ export function Newmd(): JSX.Element {
             {cardData.map((card, index) => (
               <div key={index} className="relative overflow-hidden rounded-lg">
                 <img
-                  src={card.imageUrl} // Cada card agora tem uma imagem única
+                  src={card.imageUrl}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
@@ -109,7 +111,7 @@ export function Newmd(): JSX.Element {
               <img src={selectedImage} alt="Imagem ampliada" className="w-full h-auto" />
               <button 
                 onClick={closeImage}
-                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors duration-200"
+                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors duration-300"
               >
                 <X size={24} />
               </button>
