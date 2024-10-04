@@ -82,7 +82,7 @@ const Price: React.FC = () => {
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">Recursos essensiais</span>
+                  <span className="text-muted-foreground">Recursos basicos</span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
