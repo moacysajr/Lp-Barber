@@ -68,7 +68,7 @@ export function Newmd(): JSX.Element {
           <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-8 md:px-16 lg:px-24">
             <div className="text-white max-w-lg">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Tenha a melhor experiência com agendamento</h2>
-              <p className="mb-4 text-lg sm:text-xl">AUMENTE SEU DESEMPENHO EM 100%</p>
+              <p className="mb-4 text-lg sm:text-xl">AUMENTE SEU RENDIMENTO MENSSAL EM 75%</p>
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
                 <button onClick={scrollToTest} className="bg-yellow-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-700 transition duration-300">TESTE GRÁTIS</button>
                 <button onClick={scrollToTest} className="border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition duration-300">VER PLANOS</button>
