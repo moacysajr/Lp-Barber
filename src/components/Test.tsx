@@ -13,10 +13,10 @@ export default function Test() {
         <div className="container">
           <div className="max-w-2xl text-center mx-auto">
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-white">
-              TESTE AGORA
+              Veja no video abaixo 
             </h1>
             <p className="mt-3 text-xl text-muted-foreground text-white">
-              Veja alguns exemplos para montar seu app de agenda!
+             Entre em contato para um teste AGORA
             </p>
           </div>
           <div className="mt-6 relative max-w-5xl mx-auto">
@@ -24,7 +24,7 @@ export default function Test() {
               <video
                 className="rounded-xl w-full h-auto"
                 controls
-                src="https://www.example.com/video1.mp4" // Substitua pelo URL do seu vídeo
+                src="https://utfs.io/f/OlDhih1IvUhDsLQppVstrEeYis3IKdhF0TaNtlwSUWDHMA5y" // Substitua pelo URL do seu vídeo
               />
             </div>
           </div>
