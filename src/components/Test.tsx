@@ -24,7 +24,7 @@ export default function Test() {
               <video
                 className="rounded-xl w-full h-auto"
                 controls
-                src="https://utfs.io/f/OlDhih1IvUhDsLQppVstrEeYis3IKdhF0TaNtlwSUWDHMA5y" // Substitua pelo URL do seu vídeo
+                src="videobarber.mp4" // Substitua pelo URL do seu vídeo
               />
             </div>
           </div>
