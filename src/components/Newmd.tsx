@@ -8,7 +8,9 @@ interface CardData {
   description: string;
   buttonColor: string;
   imageUrl: string;
+  detailImageUrl: string; 
 }
+
 
 export function Newmd(): JSX.Element {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -29,14 +31,12 @@ export function Newmd(): JSX.Element {
     setSelectedImage(imageSrc);
   };
 
-  const closeImage = (): void => {
-    setSelectedImage(null);
-  };
+ 
 
   const cardData: CardData[] = [
-    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "/barbeiro.jpg" },
-    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "/salão.jpg" },
-    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900", imageUrl: "/manicure.jpg" }
+    { title: "BARBEARIA", description: "Agendamento para sua barbearia", buttonColor: "yellow-600", imageUrl: "/barbeiro.jpg", detailImageUrl: "/testebarber.png"  },
+    { title: "SALÃO", description: "Agendamento para seu salão", buttonColor: "yellow-600", imageUrl: "/salão.jpg", detailImageUrl: "/testesalão.jpg"  },
+    { title: "MANICURE", description: "Agendamento para Manicure", buttonColor: "zinc-900", imageUrl: "/manicure.jpg" , detailImageUrl: "/testemanicure.jpg"  }
   ];
 
   return (
@@ -49,7 +49,7 @@ export function Newmd(): JSX.Element {
         </div>
         <div className='inline-flex gap-1 sm:gap-3 text-sm sm:text-base'>
           <Button variant="ghost" className='[&.active]:bg-secondary' onClick={scrollToTop}>
-            Home
+            Inicio
           </Button>
           <Button asChild variant="ghost" className='[&.active]:bg-secondary'>
             <Link to='/about'>Sobre</Link>
@@ -79,44 +79,44 @@ export function Newmd(): JSX.Element {
 
         {/* Seção de Cards com Imagens */}
         <section className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cardData.map((card, index) => (
-              <div key={index} className="relative overflow-hidden rounded-lg">
-                <img
-                  src={card.imageUrl}
-                  alt={card.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-white text-center p-4">
-                    <h3 className="font-bold mb-2">{card.title}</h3>
-                    <p className="text-sm mb-4">{card.description}</p>
-                    <button 
-                      className={`text-white bg-${card.buttonColor} py-2 px-4 rounded-md`}
-                      onClick={() => openImage(card.imageUrl)}
-                    >
-                      Veja Melhor
-                    </button>
-                  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {cardData.map((card, index) => (
+            <div key={index} className="relative overflow-hidden rounded-lg">
+              <img
+                src={card.imageUrl}
+                alt={card.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-50">
+                <div className="text-white text-center p-4">
+                  <h3 className="font-bold mb-2">{card.title}</h3>
+                  <p className="text-sm mb-4">{card.description}</p>
+                  <button 
+                    className={`text-white bg-${card.buttonColor} py-2 px-4 rounded-md`}
+                    onClick={() => openImage(card.detailImageUrl)} // Usar a imagem de detalhe aqui
+                  >
+                    Veja Melhor
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          ))}
+        </div>
+      </section>
 
         {/* Modal para imagem ampliada */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-            <div className="relative max-w-3xl w-full">
-              <img src={selectedImage} alt="Imagem ampliada" className="w-full h-auto" />
-              <button 
-                onClick={closeImage}
-                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors duration-300"
-              >
-                <X size={24} />
-              </button>
-            </div>
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="relative max-w-3xl w-full">
+            <img src={selectedImage} alt="Imagem ampliada" className="w-full h-auto" />
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors duration-300"
+            >
+              <X size={24} />
+            </button>
           </div>
+        </div>
         )}
       </main>
     </>
