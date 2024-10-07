@@ -45,7 +45,7 @@ const Price: React.FC = () => {
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">Suporte ao produto</span>
+                  <span className="text-muted-foreground">Suporte 24 horas</span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
@@ -53,7 +53,11 @@ const Price: React.FC = () => {
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">analtics</span>
+                  <span className="text-muted-foreground">gerenciamento financeiro</span>
+                </li>
+                <li className="flex space-x-2">
+                  <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
+                  <span className="text-muted-foreground">atualizações em tempo real</span>
                 </li>
               </ul>
             </CardContent>
@@ -86,7 +90,7 @@ const Price: React.FC = () => {
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
-                  <span className="text-muted-foreground">Suporte 24 horas</span>
+                  <span className="text-muted-foreground">Suporte ao produto </span>
                 </li>
                 <li className="flex space-x-2">
                   <CheckIcon className="flex-shrink-0 mt-0.5 h-4 w-4" />
